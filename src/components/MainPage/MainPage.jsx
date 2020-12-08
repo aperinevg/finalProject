@@ -7,7 +7,7 @@ import PiePage from './PiePage/PiePage';
 function MainPage(props) {
     return (
       <div className={style.main}>
-        <PiePage chartData={props.chartData}/>
+        <PiePage chartData={props.chartData} addLabel={props.addLabel}/>
       </div>
     );
 }

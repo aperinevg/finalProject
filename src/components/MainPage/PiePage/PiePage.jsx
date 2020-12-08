@@ -8,7 +8,7 @@ import InputForPie from './InputForPie/InputForPie';
 function PiePage(props) {
     return (
       <div className={style.piePage} >         
-         <InputForPie/>
+         <InputForPie addLabel={props.addLabel}/>
          <Chart chartData={props.chartData} />
       </div>
     );

@@ -11,7 +11,7 @@ function App(props) {
         
         <Navbar/>
         <div className="app-content">
-          <MainPage chartData={props.chartData}/> 
+          <MainPage chartData={props.chartData} addLabel={props.addLabel} /> 
         </div>
         
       </div>
