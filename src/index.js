@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { chartData } from './state';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App chartData={chartData} />
   </React.StrictMode>,
   document.getElementById('root')
 );

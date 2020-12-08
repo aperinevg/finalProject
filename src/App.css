@@ -1,1 +1,19 @@
-
+.app {
+    display: grid;
+    width: 1200px;
+    margin: 0 auto;
+  
+    grid-template-areas:
+      "h h"
+      "nav c";
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 2fr 10fr;
+    grid-gap: 10px;
+    
+}
+.app-content {
+    grid-area: c;
+    max-height: 500px;
+    border-radius: 5px;
+    
+  }
