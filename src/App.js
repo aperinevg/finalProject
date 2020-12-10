@@ -7,8 +7,7 @@ import Navbar from './components/Navbar/Navbar';
 function App(props) {
     return (
       <div className="app">
-        <Header/>
-        
+        <Header/>        
         <Navbar/>
         <div className="app-content">
           <MainPage chartData={props.chartData} addLabel={props.addLabel} /> 

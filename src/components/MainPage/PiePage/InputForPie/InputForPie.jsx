@@ -14,6 +14,7 @@ function InputForPie(props) {
       props.addLabel(text,num);
       newLabelElem.current.value='';
       newNumElem.current.value='';
+      
     }
     return (
       <div  className={style.inputForm}>
