@@ -8,8 +8,25 @@ function MainPage() {
     const [chartLabels, setChartLabels] = useState([]);
     const [chartData, setChartData] = useState([]);
     const addElement = (text, num) => {
-      setChartLabels(chartLabels.concat(text));
-      setChartData(chartData.concat(num));
+      if(chartLabels.indexOf(text) === -1){       
+        setChartLabels(chartLabels.concat(text));
+        setChartData(chartData.concat(num));
+      } else {        
+        chartData[chartLabels.indexOf(text)]+= num;       
+       
+        const chartData2 = chartData.map( num =>  num );
+        
+        setChartData(chartData2);
+        setChartLabels(chartLabels);
+
+
+        console.log(chartData);
+        console.log(chartData2);
+        
+        
+
+      }
+      
     }
 
     return (

@@ -8,9 +8,9 @@ import  style from '../PiePage.module.css'
 function InputForPie(props) {
     let newLabelElem = React.createRef();
     let newNumElem = React.createRef();
-    const addLabel = ()=>{
+    const addLabel = () => {
       let text = newLabelElem.current.value;
-      let num = newNumElem.current.value;
+      let num = +newNumElem.current.value;
       if( text && num ){
       props.addElement(text,num);
       newLabelElem.current.value='';
