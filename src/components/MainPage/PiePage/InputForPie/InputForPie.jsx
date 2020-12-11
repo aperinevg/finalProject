@@ -11,9 +11,11 @@ function InputForPie(props) {
     const addLabel = ()=>{
       let text = newLabelElem.current.value;
       let num = newNumElem.current.value;
-      props.addLabel(text,num);
+      if( text && num ){
+      props.addElement(text,num);
       newLabelElem.current.value='';
       newNumElem.current.value='';
+      }
       
     }
     return (

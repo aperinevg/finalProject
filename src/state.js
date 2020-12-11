@@ -20,7 +20,6 @@ export const state = {
             ]
           }
         ],
-        
       },
     getChartData() {
         return this._chartData;

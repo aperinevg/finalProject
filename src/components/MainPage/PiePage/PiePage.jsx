@@ -1,17 +1,14 @@
-import React from 'react';
-import  style from './PiePage.module.css'
-import Chart from './Chart/Chart';
+import  style from './PiePage.module.css';
 import InputForPie from './InputForPie/InputForPie';
-import DoughnutChart from './Chart/DoughnutChart';
+import PieChart from './Chart/PieChart';
 
 
 
 function PiePage(props) {
     return (
       <div className={style.piePage} >         
-        <InputForPie addLabel={props.addLabel}/>
-        {/* <Chart chartData={props.chartData} /> */}
-        <DoughnutChart chartData={props.chartData}/>
+        <InputForPie addElement={props.addElement}/>  
+        <PieChart lables={props.labels} data={props.data}/>
       </div>
     );
 }
