@@ -1,11 +1,14 @@
 import React from 'react';
 import  style from '../PiePage.module.css'
+import Item from './Item';
 
 
 
 
 
 function InputForPie(props) {
+  
+
     let newLabelElem = React.createRef();
     let newNumElem = React.createRef();
     const addLabel = () => {
@@ -24,6 +27,9 @@ function InputForPie(props) {
           <input ref={newLabelElem} type="text" placeholder="Write something"/>
           <input ref={newNumElem} type="text" placeholder="Write something"/>
           <button onClick={addLabel} className={style.inputButton}>Add</button>
+          </div>
+          <div className={style.table}>
+            
           </div>         
       </div>
     );

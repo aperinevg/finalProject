@@ -20,12 +20,16 @@ function PieChart (props) {
           }
         ],
   };
+  const options = {
+    responsive: true,
+    maintainAspectRatio: true,
+  }
 
  
 
   return (
     <div className={style.pieChart} >
-      <Pie data={data} options={{}} />
+      <Pie data={data} options={options} />
     </div>
     )
 }
