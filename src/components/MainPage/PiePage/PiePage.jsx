@@ -7,7 +7,7 @@ import PieChart from './Chart/PieChart';
 function PiePage(props) {
     return (
       <div className={style.piePage} >         
-        <InputForPie lables={props.labels} data={props.data} addElement={props.addElement}/>  
+        <InputForPie lables={props.labels} data={props.data} addElement={props.addElement} />  
         <PieChart lables={props.labels} data={props.data}/>
       </div>
     );

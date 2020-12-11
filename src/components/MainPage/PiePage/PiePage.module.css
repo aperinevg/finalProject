@@ -16,6 +16,13 @@
    
 }
 .pieChart {
-    width: 400px;
+    width: 500px;
     
+}
+.item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 50%;
 }
