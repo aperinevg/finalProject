@@ -1,6 +1,6 @@
 import React from 'react';
 import  style from '../PiePage.module.css'
-import Item from './Item';
+
 
 
 

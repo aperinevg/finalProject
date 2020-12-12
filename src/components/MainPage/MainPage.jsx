@@ -10,76 +10,43 @@ function MainPage() {
     const [chartLabels, setChartLabels] = useState([]);
     const [chartData, setChartData] = useState([]);
 
+    let item;    
 
-    let item;
-    let value;
-   
-
-    
-
-
-
-    const addElement = (text, num) => {
-      if(chartLabels.indexOf(text) === -1){       
-        setChartLabels(chartLabels.concat(text));
-        setChartData(chartData.concat(num));
-      } else {        
-        chartData[chartLabels.indexOf(text)]+= num;       
-        
-        const newChartData = chartData.filter( el =>  true);
-        const newChartLabels = chartLabels.filter( el =>  true);
-        
-        
-        setChartData(newChartData);
-        setChartLabels(newChartLabels);
-      }
-      
-    }
-    const deleteElement = (text)=>{
+    const deleteElement = text => {
       let indexOfText;
       
-      
       const newChartLabels = chartLabels.filter((item, index) => {
-        indexOfText = index;       
-        
+        if(item === text){
+          indexOfText = index;
+        }        
         return item !== text
-      });
-      
-      const newChartData = chartData.filter((item, index) => index !== indexOfText); 
+      });  
+      const newChartData = chartData.filter((item, index) => index !== indexOfText);
+
       setChartLabels(newChartLabels);
       setChartData(newChartData);
 
-
-      // console.log(newChatrLabels);
-      // console.log(newChatrData); 
-      // function del(arr) {
-      //   let result = [];
-      //   let index;
-      //   for (let item of arr) {
-      //     if (item !== text) {
-      //       result.push(item);
-      //     } else {
-      //       index = arr.indexOf(item);
-      //     }
-      //   }
+      return {сhartLabels: newChartLabels, сhartData: newChartData}
       
-      //   return result;
-      // }
+    };
+    const addElement = (text, num) => {
+      if(chartLabels.indexOf(text) === -1){
 
-      // setChartLabels(del(chartLabels));
-      // setChartData(chartData.map(item => item !== text))
+        setChartLabels(chartLabels.concat(text));
+        setChartData(chartData.concat(num));
 
-      // chartLabels.splice(chartLabels.indexOf(text),1);
-      // chartData.splice(chartLabels.indexOf(text),1);
-      // // console.log(chartData[chartLabels.indexOf(text),1]);
-      // const newChartData = chartData.slice();
-      // const newChartLabels = chartLabels.slice();
-     
-      // setChartLabels(newChartLabels);
-      // setChartData(newChartData);
+      } else { 
 
+        let oldNum = chartData[chartLabels.indexOf(text)];
+        let newChart = deleteElement(text); 
+
+        setChartLabels((newChart.сhartLabels.concat(text)));
+        setChartData(newChart.сhartData.concat((num+oldNum)));
+    
+      }
       
     }
+    
     
 
 
