@@ -1,17 +1,22 @@
 import React from 'react'
 import  style from '../PiePage.module.css'
 
-function Item (props) {
+const Item = props => {
   const deleteElem = () =>{
     let text = props.text;
-    props.deleteElement(text);
+
+    props.deleteElement(text, props.type);
   }
   
 
   return (
     <div  >
       <div className={style.item}>
-        {props.text} {props.value}
+        <div className={style.itemText}>
+          <span>{props.text}</span>
+          <span>{props.value + ' руб.'}</span>
+        </div>        
+         
         <button onClick={deleteElem}>Delete</button>  
       </div>
          

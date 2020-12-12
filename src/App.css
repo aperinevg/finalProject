@@ -1,19 +1,15 @@
 .app {
-    display: grid;
-    width: 1200px;
-    margin: 0 auto;
-  
-    grid-template-areas:
-      "h h"
-      "c c";
-    grid-template-rows: 60px 1fr;
-    grid-template-columns: 2fr 10fr;
-    grid-gap: 10px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   width: 1200px;
+   margin: 0 auto;
+   margin-top: 50px;
+   height: 600px;
     
 }
 .app-content {
-    grid-area: c;
-    max-height: 500px;
-    border-radius: 5px;
+    
+    
     
   }

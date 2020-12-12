@@ -1,15 +1,15 @@
-import  style from './PiePage.module.css';
+import  style from './Revenue.module.css';
 import InputForPie from './InputForPie/InputForPie';
 import PieChart from './Chart/PieChart';
-import Item from './InputForPie/Item';
+import Item from '';
 
 
 
-const PiePage = props => {
+const Revenue = props => {
   let item;
   
   if (props.labels){
-    item = props.labels.map(elem => <Item type={props.type} deleteElement={props.deleteElement} text = {elem} value = {props.data[props.labels.indexOf(elem)]}/>);
+    item = props.labels.map(elem => <Item deleteElement={props.deleteElement} text = {elem} value = {props.data[props.labels.indexOf(elem)]}/>);
     
     
     
@@ -17,7 +17,7 @@ const PiePage = props => {
 
     return (
       <div>
-        <h3 className={style.title}>{props.title}</h3>
+        <h3 className={style.title}>Expenses</h3>
         <div className={style.piePage} >
         
         <div className={style.data} >           
@@ -25,7 +25,7 @@ const PiePage = props => {
             {item}
           </div>
           <div >
-            <InputForPie type={props.type} lables={props.labels} data={props.data} addElement={props.addElement} />
+            <InputForPie lables={props.labels} data={props.data} addElement={props.addElement} />
           </div>
           
          
@@ -39,4 +39,4 @@ const PiePage = props => {
     );
 }
 
-export default PiePage; 
+export default Revenue; 

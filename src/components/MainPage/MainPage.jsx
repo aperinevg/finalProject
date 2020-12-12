@@ -1,67 +1,96 @@
 import {React, useState } from 'react';
 import  style  from './MainPage.module.css';
-import Item from './PiePage/InputForPie/Item';
+import { BrowserRouter, Route } from 'react-router-dom';
+
 import PiePage from './PiePage/PiePage';
 
 
 
 
-function MainPage() {
+const MainPage = () => {
     const [chartLabels, setChartLabels] = useState([]);
     const [chartData, setChartData] = useState([]);
 
-    let item;    
+    const [chartLabelsIncome, setChartLabelsIncome] = useState([]);
+    const [chartDataIncome, setChartDataIncome] = useState([]);
 
-    const deleteElement = text => {
-      let indexOfText;
-      
-      const newChartLabels = chartLabels.filter((item, index) => {
+    const titleExpenses = "Expenses";
+    const titleIncome = "Income";
+
+
+    const delElem = (labels, data, setLabels, setData, text ) => {
+      let indexOfText; 
+      const newChartLabels = labels.filter((item, index) => {
         if(item === text){
           indexOfText = index;
         }        
         return item !== text
       });  
-      const newChartData = chartData.filter((item, index) => index !== indexOfText);
+      const newChartData = data.filter((item, index) => index !== indexOfText);
 
-      setChartLabels(newChartLabels);
-      setChartData(newChartData);
+      setLabels(newChartLabels);
+      setData(newChartData);
 
       return {сhartLabels: newChartLabels, сhartData: newChartData}
-      
-    };
-    const addElement = (text, num) => {
-      if(chartLabels.indexOf(text) === -1){
+    }
+    const addElem = (labels, data, setLabels, setData, text, num, type) => {
+      if(labels.indexOf(text) === -1){
 
-        setChartLabels(chartLabels.concat(text));
-        setChartData(chartData.concat(num));
+        setLabels(labels.concat(text));
+        setData(data.concat(num));
 
       } else { 
 
-        let oldNum = chartData[chartLabels.indexOf(text)];
-        let newChart = deleteElement(text); 
+        let oldNum = data[labels.indexOf(text)];
+        let newChart = deleteElement(text, type); 
 
-        setChartLabels((newChart.сhartLabels.concat(text)));
-        setChartData(newChart.сhartData.concat((num+oldNum)));
+        setLabels((newChart.labels.concat(text)));
+        setData(newChart.data.concat((num+oldNum)));
     
       }
       
     }
-    
-    
 
+       
 
-
-    if (chartLabels){
-      item = chartLabels.map(elem => <Item deleteElement={deleteElement} text = {elem} value = {chartData[chartLabels.indexOf(elem)]}/>);
-      
+    const deleteElement = (text, type )=> {
+      if (type === "expenses"){
+        return delElem(chartLabels, chartData, setChartLabels, setChartData, text)
       }
+      if (type === "income"){
+        return delElem(chartLabelsIncome, chartDataIncome, setChartLabelsIncome, setChartDataIncome, text)
+      }
+        
+      
+    };
+    const addElement = (text, num, type) => {
+      if (type === "expenses"){
+        return addElem(chartLabels, chartData, setChartLabels, setChartData, text, num, type)
+      }
+      if (type === "income"){
+        return addElem(chartLabelsIncome, chartDataIncome, setChartLabelsIncome, setChartDataIncome, text, num, type)
+      }
+    }
+    
+
+    
     
     return (
+    
       <div className={style.main}>
-        <PiePage labels={chartLabels} data={chartData} addElement={addElement} />
-        {item} 
         
+      
+        <div className="app-content">
+            <Route path='/expenses' render = { () => <PiePage type="expenses" title={titleExpenses} labels={chartLabels} data={chartData} addElement={addElement} deleteElement={deleteElement}/> } />
+            <Route path='/income' render = { () =>  <PiePage type="income" title={titleIncome} labels={chartLabelsIncome} data={chartDataIncome} addElement={addElement} deleteElement={deleteElement}/> } />
+            
+                  
+        </div>
+
+        
+
       </div>
+    
     );
 }
 
