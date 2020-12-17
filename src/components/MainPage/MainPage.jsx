@@ -1,6 +1,6 @@
 import {React, useState } from 'react';
 import  style  from './MainPage.module.css';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import PiePage from './PiePage/PiePage';
 
@@ -31,7 +31,7 @@ const MainPage = () => {
       setLabels(newChartLabels);
       setData(newChartData);
 
-      return {сhartLabels: newChartLabels, сhartData: newChartData}
+      return {labels: newChartLabels, data: newChartData}
     }
     const addElem = (labels, data, setLabels, setData, text, num, type) => {
       if(labels.indexOf(text) === -1){

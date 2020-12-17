@@ -24,17 +24,27 @@ const InputForPie = props => {
       }
       
     }
+    const saveLabel = () =>{
+      
+    }
+
+
     return (
-      <div  className={style.inputForm}>
+     
         <div className={style.input}>
-          <input className={style.inputData} ref={newLabelElem} type="text" placeholder="Write something"/>
-          <input className={style.inputData} ref={newNumElem} type="text" placeholder="Write something"/>
-          <button onClick={addLabel} className={style.inputButton}>Add</button>
+          <div className={style.inputForm}>
+            <input className={style.inputData} ref={newLabelElem} type="text" placeholder="Write something"/>
+            <input className={style.inputData} ref={newNumElem} type="text" placeholder="Write something"/>
           </div>
-          <div className={style.table}>
-            
-          </div>         
-      </div>
+          
+
+          <button className={style.inputButton} onClick={addLabel} >Add</button>
+          <button className={style.inputButton} onClick={saveLabel} >Save</button>
+
+
+        </div>
+                
+      
     );
 }
 

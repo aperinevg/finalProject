@@ -4,7 +4,7 @@ import Header from './components/Header/Header';
 import MainPage from './components/MainPage/MainPage';
 import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 
 
@@ -21,7 +21,7 @@ function App() {
           
         </div>
         
-        <Footer/>
+        
         
       </div>
     </BrowserRouter>

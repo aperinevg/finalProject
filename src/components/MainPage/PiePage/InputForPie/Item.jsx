@@ -10,17 +10,18 @@ const Item = props => {
   
 
   return (
-    <div  >
+    
       <div className={style.item}>
-        <div className={style.itemText}>
-          <span>{props.text}</span>
-          <span>{props.value + ' руб.'}</span>
+        <div className={style.itemForm}>
+          <span className={style.itemText}>{props.text}</span>
+          <span className={style.itemValue}>{props.value + ' руб.'}</span>
         </div>        
          
-        <button onClick={deleteElem}>Delete</button>  
+        <button onClick={deleteElem}>Delete</button>
+         
       </div>
          
-    </div>
+    
     )
 }
 
