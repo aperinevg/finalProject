@@ -25,7 +25,7 @@ const PiePage = props => {
               {item}
             </div>
             
-            <InputForPie type={props.type} lables={props.labels} data={props.data} addElement={props.addElement} />
+            <InputForPie type={props.type} lables={props.labels} data={props.data} addElement={props.addElement} saveData={props.saveData}/>
            
             
           

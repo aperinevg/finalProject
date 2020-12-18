@@ -8,11 +8,16 @@ import PiePage from './PiePage/PiePage';
 
 
 const MainPage = () => {
-    const [chartLabels, setChartLabels] = useState([]);
-    const [chartData, setChartData] = useState([]);
+    const [chartLabels, setChartLabels] = useState(JSON.parse(localStorage.getItem('chartLabels')) || []);
+    const [chartData, setChartData] = useState(JSON.parse(localStorage.getItem('chartData')) || []);
 
-    const [chartLabelsIncome, setChartLabelsIncome] = useState([]);
-    const [chartDataIncome, setChartDataIncome] = useState([]);
+   
+
+
+    const [chartLabelsIncome, setChartLabelsIncome] = useState(JSON.parse(localStorage.getItem('chartLabelsIncome')) || []);
+    const [chartDataIncome, setChartDataIncome] = useState(JSON.parse(localStorage.getItem('chartDataIncome')) || []);
+
+    
 
     const titleExpenses = "Expenses";
     const titleIncome = "Income";
@@ -30,14 +35,13 @@ const MainPage = () => {
 
       setLabels(newChartLabels);
       setData(newChartData);
-
       return {labels: newChartLabels, data: newChartData}
     }
     const addElem = (labels, data, setLabels, setData, text, num, type) => {
       if(labels.indexOf(text) === -1){
 
         setLabels(labels.concat(text));
-        setData(data.concat(num));
+        setData(data.concat(num)); 
 
       } else { 
 
@@ -54,7 +58,7 @@ const MainPage = () => {
        
 
     const deleteElement = (text, type )=> {
-      if (type === "expenses"){
+      if (type === "expenses"){       
         return delElem(chartLabels, chartData, setChartLabels, setChartData, text)
       }
       if (type === "income"){
@@ -64,12 +68,26 @@ const MainPage = () => {
       
     };
     const addElement = (text, num, type) => {
+
+     
       if (type === "expenses"){
-        return addElem(chartLabels, chartData, setChartLabels, setChartData, text, num, type)
+        return addElem(chartLabels, chartData, setChartLabels, setChartData, text, num, type);        
       }
       if (type === "income"){
         return addElem(chartLabelsIncome, chartDataIncome, setChartLabelsIncome, setChartDataIncome, text, num, type)
       }
+      
+    }
+    const saveData = (type) => {
+      if (type === "expenses"){
+        localStorage.setItem('chartLabels', JSON.stringify(chartLabels));
+        localStorage.setItem('chartData', JSON.stringify(chartData));
+      } 
+      if (type === "income"){
+        localStorage.setItem('chartLabelsIncome', JSON.stringify(chartLabelsIncome));
+        localStorage.setItem('chartDataIncome', JSON.stringify(chartDataIncome));
+      }
+      
     }
     
 
@@ -81,8 +99,8 @@ const MainPage = () => {
         
       
         <div className="app-content">
-            <Route path='/expenses' render = { () => <PiePage type="expenses" title={titleExpenses} labels={chartLabels} data={chartData} addElement={addElement} deleteElement={deleteElement}/> } />
-            <Route path='/income' render = { () =>  <PiePage type="income" title={titleIncome} labels={chartLabelsIncome} data={chartDataIncome} addElement={addElement} deleteElement={deleteElement}/> } />
+            <Route path='/expenses' render = { () => <PiePage type="expenses" title={titleExpenses} labels={chartLabels} data={chartData} addElement={addElement} deleteElement={deleteElement} saveData={saveData}/> } />
+            <Route path='/income' render = { () =>  <PiePage type="income" title={titleIncome} labels={chartLabelsIncome} data={chartDataIncome} addElement={addElement} deleteElement={deleteElement} saveData={saveData}/> } />
             
                   
         </div>

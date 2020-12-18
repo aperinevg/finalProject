@@ -24,8 +24,8 @@ const InputForPie = props => {
       }
       
     }
-    const saveLabel = () =>{
-      
+    const save = () =>{
+      props.saveData(type);
     }
 
 
@@ -39,7 +39,7 @@ const InputForPie = props => {
           
 
           <button className={style.inputButton} onClick={addLabel} >Add</button>
-          <button className={style.inputButton} onClick={saveLabel} >Save</button>
+          <button className={style.inputButton} onClick={save} >Save</button>
 
 
         </div>
