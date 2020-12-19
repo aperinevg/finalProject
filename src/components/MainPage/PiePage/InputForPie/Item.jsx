@@ -18,7 +18,7 @@ const Item = props => {
         </div>        
          
         <button onClick={deleteElem}>Delete</button>
-         
+        
       </div>
          
     

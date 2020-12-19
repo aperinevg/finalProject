@@ -33,13 +33,13 @@ const InputForPie = props => {
      
         <div className={style.input}>
           <div className={style.inputForm}>
-            <input className={style.inputData} ref={newLabelElem} type="text" placeholder="Write something"/>
-            <input className={style.inputData} ref={newNumElem} type="text" placeholder="Write something"/>
+            <input className={style.inputData} ref={newLabelElem} type="text" placeholder="purchase"/>
+            <input className={style.inputData} ref={newNumElem} type="text" placeholder="cost"/>
           </div>
           
 
-          <button className={style.inputButton} onClick={addLabel} >Add</button>
-          <button className={style.inputButton} onClick={save} >Save</button>
+          <a className={style.inputButton} onClick={addLabel} >Add</a>
+          <a className={style.inputButton} onClick={save} >Save</a>
 
 
         </div>

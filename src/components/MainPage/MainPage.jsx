@@ -11,16 +11,12 @@ const MainPage = () => {
     const [chartLabels, setChartLabels] = useState(JSON.parse(localStorage.getItem('chartLabels')) || []);
     const [chartData, setChartData] = useState(JSON.parse(localStorage.getItem('chartData')) || []);
 
-   
-
-
     const [chartLabelsIncome, setChartLabelsIncome] = useState(JSON.parse(localStorage.getItem('chartLabelsIncome')) || []);
     const [chartDataIncome, setChartDataIncome] = useState(JSON.parse(localStorage.getItem('chartDataIncome')) || []);
 
-    
-
     const titleExpenses = "Expenses";
     const titleIncome = "Income";
+    const titleTotal = "Total";
 
 
     const delElem = (labels, data, setLabels, setData, text ) => {
@@ -64,8 +60,6 @@ const MainPage = () => {
       if (type === "income"){
         return delElem(chartLabelsIncome, chartDataIncome, setChartLabelsIncome, setChartDataIncome, text)
       }
-        
-      
     };
     const addElement = (text, num, type) => {
 
@@ -101,6 +95,7 @@ const MainPage = () => {
         <div className="app-content">
             <Route path='/expenses' render = { () => <PiePage type="expenses" title={titleExpenses} labels={chartLabels} data={chartData} addElement={addElement} deleteElement={deleteElement} saveData={saveData}/> } />
             <Route path='/income' render = { () =>  <PiePage type="income" title={titleIncome} labels={chartLabelsIncome} data={chartDataIncome} addElement={addElement} deleteElement={deleteElement} saveData={saveData}/> } />
+            {/* <Route path='/total' render = { () =>  <PiePage type="total" title={titleTotal} labels={chartLabelsIncome} data={chartDataIncome}/> } /> */}
             
                   
         </div>
