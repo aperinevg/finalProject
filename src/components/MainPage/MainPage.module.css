@@ -1,6 +1,11 @@
+.container {
+    width: 990px;
+    height: 600px;
+}
 .main{
     width: 990px;
-    height: 90%;
+    height: 600px;
+    
     
     margin: 0 auto;
     padding: 10px;
@@ -8,6 +13,32 @@
     background: #FFFFFF;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
+    position: absolute;
+    z-index: 100;
+    box-sizing: border-box;
+    
+   
 }
     
-
+.page {
+    position: absolute;
+    z-index: 2;
+    width: 990px;
+    height: 600px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    transform:  translate3d(-10px, 5px, 0px);
+    
+}
+.page2 {
+    position: absolute;
+    z-index: 1;
+    width: 990px;
+    height: 600px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    transform:  translate3d(-20px, 10px, 0px);
+    
+}

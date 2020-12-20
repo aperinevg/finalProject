@@ -88,21 +88,18 @@ const MainPage = () => {
     
     
     return (
-    
-      <div className={style.main}>
-        
-      
-        <div className="app-content">
-            <Route path='/expenses' render = { () => <PiePage type="expenses" title={titleExpenses} labels={chartLabels} data={chartData} addElement={addElement} deleteElement={deleteElement} saveData={saveData}/> } />
-            <Route path='/income' render = { () =>  <PiePage type="income" title={titleIncome} labels={chartLabelsIncome} data={chartDataIncome} addElement={addElement} deleteElement={deleteElement} saveData={saveData}/> } />
-            {/* <Route path='/total' render = { () =>  <PiePage type="total" title={titleTotal} labels={chartLabelsIncome} data={chartDataIncome}/> } /> */}
-            
-                  
+      <div className={style.container}>
+        <div className={style.page}></div>
+        <div className={style.page2}></div>
+        <div className={style.main}>
+          <div className="app-content">
+              <Route path='/expenses' render = { () => <PiePage type="expenses" title={titleExpenses} labels={chartLabels} data={chartData} addElement={addElement} deleteElement={deleteElement} saveData={saveData}/> } />
+              <Route path='/income' render = { () =>  <PiePage type="income" title={titleIncome} labels={chartLabelsIncome} data={chartDataIncome} addElement={addElement} deleteElement={deleteElement} saveData={saveData}/> } />
+              {/* <Route path='/total' render = { () =>  <PiePage type="total" title={titleTotal} labels={chartLabelsIncome} data={chartDataIncome}/> } /> */}
+          </div>
         </div>
-
-        
-
       </div>
+      
     
     );
 }

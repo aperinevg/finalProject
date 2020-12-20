@@ -13,16 +13,15 @@ const InputForPie = props => {
 
     let newLabelElem = React.createRef();
     let newNumElem = React.createRef();
-    const addLabel = () => {
 
+    const addLabel = () => {
       let text = newLabelElem.current.value;
       let num = +newNumElem.current.value;
       if( text && num ){
       props.addElement(text,num, type);
       newLabelElem.current.value='';
       newNumElem.current.value='';
-      }
-      
+      }      
     }
     const save = () =>{
       props.saveData(type);
