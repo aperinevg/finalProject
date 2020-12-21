@@ -11,26 +11,38 @@ const PiePageTotal = props => {
   // if (props.labels){
   //   item = props.labels.map((elem,i) => <Item key={i} type={props.type} deleteElement={props.deleteElement} text = {elem} value = {props.data[props.labels.indexOf(elem)]}/>);
     
-    
+  const totalExpenses = props.dataExpenses.reduce((acc, val) => acc + val, 0);
+  const totalIncome = props.dataIncome.reduce((acc, val) => acc + val, 0);
+
+  const total = {
+    lables: ["Expenses", "Income"],
+    data:[totalExpenses, totalIncome]
+  }
+  
     
   //   }
 
     return (
         <div className={style.container}>
-            <h3 className={style.title}>{props.title}</h3>
+            <h3 className={style.titleTotal}>{props.title}</h3>
             <div className={style.piePage} >
-              <div>           
-                <div className= {style.history}>
+                        
+                <div className= {style.historyTotal}>
+                  <div className= {style.historyTotalText}>
+                    <p className={style.historyTotalTitle}>Total Income</p>
+                    {totalIncome + " руб"}
+                  </div>
+                  <div className= {style.historyTotalText}>
+                    <p className={style.historyTotalTitle}>Total Expenses</p>
+                    {totalExpenses + " руб"}
+                  </div>
                   
-                  {/* {item} */}
+                  
                 </div>
-                
-                {/* <InputForPie type={props.type} lables={props.labels} data={props.data} addElement={props.addElement} saveData={props.saveData}/> */}
-              
-                
-              </div>         
+               
+                      
             
-              <PieChart lables={props.labels} data={props.data}/>
+              <PieChart  lables={total.lables} data={total.data}/>
             </div>
         </div>
     );

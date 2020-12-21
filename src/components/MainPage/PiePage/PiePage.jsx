@@ -9,7 +9,7 @@ const PiePage = props => {
   let item;
   
   if (props.labels){
-    item = props.labels.map((elem,i) => <Item key={i} type={props.type} deleteElement={props.deleteElement} text = {elem} value = {props.data[props.labels.indexOf(elem)]}/>);
+    item = props.labels.map((elem,i) => <Item key={i} index={i} type={props.type} deleteElement={props.deleteElement} text = {elem} value = {props.data[props.labels.indexOf(elem)]}/>);
     
     
     
