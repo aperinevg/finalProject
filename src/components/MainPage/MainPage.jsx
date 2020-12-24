@@ -111,7 +111,9 @@ const MainPage = () => {
               }/>
               <Route path='/income' render = { () =>  
                 <PiePage 
-                  type="income" title={titleIncome} 
+                  type="income" 
+                  title="DDDDDD"
+                  // title={titleIncome} 
                   labels={chartLabelsIncome} 
                   data={chartDataIncome} 
                   addElement={addElement} 

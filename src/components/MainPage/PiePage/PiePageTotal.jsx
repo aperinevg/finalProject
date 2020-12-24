@@ -6,13 +6,10 @@ import Item from './InputForPie/Item';
 
 
 const PiePageTotal = props => {
-  // let item;
-  
-  // if (props.labels){
-  //   item = props.labels.map((elem,i) => <Item key={i} type={props.type} deleteElement={props.deleteElement} text = {elem} value = {props.data[props.labels.indexOf(elem)]}/>);
+
     
-  const totalExpenses = props.dataExpenses.reduce((acc, val) => acc + val, 0);
-  const totalIncome = props.dataIncome.reduce((acc, val) => acc + val, 0);
+  const totalExpenses = Math.round(props.dataExpenses.reduce((acc, val) => acc + val, 0)*10)/10;
+  const totalIncome = Math.round(props.dataIncome.reduce((acc, val) => acc + val, 0)*10)/10;
 
   const total = {
     lables: ["Expenses", "Income"],
@@ -20,7 +17,7 @@ const PiePageTotal = props => {
   }
   
     
-  //   }
+ 
 
     return (
         <div className={style.container}>

@@ -3,14 +3,14 @@ import React from 'react';
 import Header from './components/Header/Header';
 import MainPage from './components/MainPage/MainPage';
 import Navbar from './components/Navbar/Navbar';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 
 
 
 function App() {
     return (
-    <BrowserRouter>
+    <HashRouter>
       <div >
         <Header/>        
         <div className="app">          
@@ -23,7 +23,7 @@ function App() {
         
         
       </div>
-    </BrowserRouter>
+    </HashRouter>
     );
   
 }
