@@ -7,7 +7,7 @@ function Navbar() {
     return (
       <div className={style.navbar}>
         
-            <NavLink className={style.link} to='/expenses'>Expenses</NavLink>
+            <NavLink className={style.link}  to='/'>Expenses</NavLink>
        
        
             <NavLink className={style.link} to='/income'>Income</NavLink>

@@ -12,12 +12,14 @@ const dataExpenses = JSON.parse(localStorage.getItem('chartData'));
 const labelsIncome = JSON.parse(localStorage.getItem('chartLabelsIncome'));
 const dataIncome = JSON.parse(localStorage.getItem('chartDataIncome'));
 
+const testData = [50, 60];
+const testLabels = ['delete, this is a test1','delete, this is a test2' ];
 
 
 
 const MainPage = () => {
-    const [chartLabels, setChartLabels] = useState(labelsExpenses|| []);
-    const [chartData, setChartData] = useState(dataExpenses || []);
+    const [chartLabels, setChartLabels] = useState(labelsExpenses|| testLabels);
+    const [chartData, setChartData] = useState(dataExpenses || testData);
 
     const [chartLabelsIncome, setChartLabelsIncome] = useState(labelsIncome || []);
     const [chartDataIncome, setChartDataIncome] = useState(dataIncome || []);
@@ -48,7 +50,6 @@ const MainPage = () => {
         setData(data.concat(num)); 
 
       } else { 
-        let oldNum = data[labels.indexOf(text)];        
         let  newChartData = data.slice();
         newChartData[labels.indexOf(text)]+=num
         setData(newChartData);
@@ -98,7 +99,7 @@ const MainPage = () => {
         <div className={style.page2}></div>
         <div className={style.main}>
           <div className="app-content">
-              <Route path='/expenses' render = { () => 
+              <Route exact path='/' render = { () => 
                 <PiePage 
                   type="expenses" 
                   title={titleExpenses} 
