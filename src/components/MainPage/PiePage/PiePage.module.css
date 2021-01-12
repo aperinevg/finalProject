@@ -29,6 +29,12 @@
     line-height: 26px; 
     border-bottom: 1px solid #cfcdcd;
 }
+.itemSave{
+    text-align: center;
+    padding: 2px;    
+    width: 95%;
+    background-color: rgb(188, 241, 197);
+}
 .itemForm {
     width: 60%;
     display: flex;
@@ -40,12 +46,11 @@
     width: 200px;
 }
 .itemValue {
-    width: 80px;
+    width: 120px;
 }
 
 .history{
-    height: 250px;
-    /* background-color: rgb(201, 67, 67); */
+    height: 250px;   
     max-width: 400px;
     width: 100%;
     margin-bottom: 50px;

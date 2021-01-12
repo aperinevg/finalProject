@@ -2,11 +2,14 @@ import React from 'react'
 import  style from '../PiePage.module.css'
 
 const Item = props => {
+  
   const deleteElem = () =>{
     let text = props.text;
 
     props.deleteElement(text, props.type);
   }
+  
+  
   
 
   return (
@@ -20,9 +23,11 @@ const Item = props => {
         <button onClick={deleteElem}>Delete</button>
         
       </div>
+    
+      
          
     
     )
 }
 
-export default Item
+export default Item;
